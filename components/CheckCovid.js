@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
@@ -9,6 +9,7 @@ import {
   ImageBackground,
 } from "react-native";
 import Questions from "./Questions";
+// import { firestore, database } from "../config";
 
 function CheckCovid({ navigation }) {
   const [checkedQuestions, setCheckedQuestions] = useState([]);
@@ -16,7 +17,7 @@ function CheckCovid({ navigation }) {
   const question = [
     {
       id: "3ed2g3",
-      q: "Age 60 or over?",
+      q: "Age 60+",
       imgs: "https://cdn-icons-png.flaticon.com/512/1533/1533913.png",
     },
     {
@@ -36,12 +37,12 @@ function CheckCovid({ navigation }) {
     },
     {
       id: "sdf68s",
-      q: "Shortness of breath?",
+      q: "Shortness of breath",
       imgs: "https://cdn-icons-png.flaticon.com/512/1533/1533913.png",
     },
     {
       id: "fkew33",
-      q: "Headache?",
+      q: "Headache",
       imgs: "https://cdn-icons-png.flaticon.com/512/1533/1533913.png",
     },
   ];
@@ -83,7 +84,7 @@ function CheckCovid({ navigation }) {
     ));
 
   const handleClick = () => {
-    console.log(checkedQuestions);
+    navigation.navigate("Yes Result");
   };
 
   return (
@@ -101,8 +102,7 @@ function CheckCovid({ navigation }) {
           alignItems: "center",
         }}
       >
-        {/* <TouchableOpacity onPress={handleClick}> */}
-        <TouchableOpacity onPress={() => navigation.navigate("Yes Result")}>
+        <TouchableOpacity onPress={handleClick}>
           <Text style={styles.submitBtn}>Submit</Text>
         </TouchableOpacity>
       </View>

@@ -10,9 +10,23 @@ import {
 import CustomModal from "./modal";
 
 function YesResult({ navigation }) {
-  const [modalVisible, setModalVisible] = useState(false);
-  const modalStatus = (val) => {
-    setModalVisible(val);
+  const [modalVisible1, setModalVisible1] = useState(false);
+  const [modalVisible2, setModalVisible2] = useState(false);
+  const [modalVisible3, setModalVisible3] = useState(false);
+  const [modalVisible4, setModalVisible4] = useState(false);
+
+  const modalStatus1 = (val) => {
+    setModalVisible1(val);
+  };
+
+  const modalStatus2 = (val) => {
+    setModalVisible2(val);
+  };
+  const modalStatus3 = (val) => {
+    setModalVisible3(val);
+  };
+  const modalStatus4 = (val) => {
+    setModalVisible4(val);
   };
 
   return (
@@ -24,19 +38,19 @@ function YesResult({ navigation }) {
         <Text style={{ textAlign: "center" }}>HI</Text>
       </View>
 
-      <Text>Advice</Text>
+      <Text style={styles.title}>Advice</Text>
 
       <View style={styles.Container}>
         <View style={styles.FirstBox}>
           <Pressable
             style={[styles.button, styles.buttonOpen]}
-            onPress={() => setModalVisible(true)}
+            onPress={() => setModalVisible1(true)}
           >
             <Text>Feeling breathless</Text>
 
             <CustomModal
-              modalStatus={modalStatus}
-              modalVisible={modalVisible}
+              modalStatus={modalStatus1}
+              modalVisible={modalVisible1}
               title="Feeling breathless"
               data={[
                 {
@@ -55,13 +69,13 @@ function YesResult({ navigation }) {
         <View style={styles.SecBox}>
           <Pressable
             style={[styles.button, styles.buttonOpen]}
-            onPress={() => setModalVisible(true)}
+            onPress={() => setModalVisible2(true)}
           >
             <Text>Treating cough</Text>
 
             <CustomModal
-              modalStatus={modalStatus}
-              modalVisible={modalVisible}
+              modalStatus={modalStatus2}
+              modalVisible={modalVisible2}
               title="Treating cough"
               data={[
                 {
@@ -76,8 +90,48 @@ function YesResult({ navigation }) {
             />
           </Pressable>
         </View>
-        <View style={styles.ThirdBox}></View>
-        <View style={styles.FourthBox}></View>
+        <View style={styles.ThirdBox}>
+          <Pressable
+            style={[styles.button, styles.buttonOpen]}
+            onPress={() => setModalVisible3(true)}
+          >
+            <Text>Treating cough</Text>
+
+            <CustomModal
+              modalStatus={modalStatus3}
+              modalVisible={modalVisible3}
+              title="Treating coooough"
+              data={[
+                {
+                  key: "If you have a cough, it's best to avoid lying on your back. Lie on your side or sit upright instead.",
+                },
+                { key: "sitting upright in a chair" },
+                { key: "relaxing your shoulders, so you're not hunched" },
+              ]}
+            />
+          </Pressable>
+        </View>
+        <View style={styles.FourthBox}>
+          <Pressable
+            style={[styles.button, styles.buttonOpen]}
+            onPress={() => setModalVisible4(true)}
+          >
+            <Text>Treating cough</Text>
+
+            <CustomModal
+              modalStatus={modalStatus4}
+              modalVisible={modalVisible4}
+              title="Treating cough"
+              data={[
+                { key: "sitting upright in a chair" },
+                { key: "relaxing your shoulders, so you're not hunched" },
+                {
+                  key: "leaning forward slightly – support yourself by putting your hands on your knees or on something stable like a chair",
+                },
+              ]}
+            />
+          </Pressable>
+        </View>
       </View>
     </ImageBackground>
   );
@@ -86,6 +140,11 @@ function YesResult({ navigation }) {
 const styles = StyleSheet.create({
   background: {
     height: 700,
+  },
+  title: {
+    textAlign: "center",
+    marginTop: 30,
+    fontSize: 24,
   },
   Result: {
     width: 350,
@@ -108,7 +167,7 @@ const styles = StyleSheet.create({
   FirstBox: {
     width: 150,
     height: 150,
-    marginTop: 35,
+    marginTop: 30,
     borderRadius: 20,
     backgroundColor: "white",
     alignItems: "center",
@@ -117,7 +176,7 @@ const styles = StyleSheet.create({
   SecBox: {
     width: 150,
     height: 150,
-    marginTop: 35,
+    marginTop: 30,
     borderRadius: 20,
     backgroundColor: "white",
     alignItems: "center",
@@ -126,7 +185,7 @@ const styles = StyleSheet.create({
   ThirdBox: {
     width: 150,
     height: 150,
-    marginTop: 35,
+    marginTop: 30,
     borderRadius: 20,
     backgroundColor: "white",
     alignItems: "center",
@@ -135,7 +194,7 @@ const styles = StyleSheet.create({
   FourthBox: {
     width: 150,
     height: 150,
-    marginTop: 35,
+    marginTop: 30,
     borderRadius: 20,
     backgroundColor: "white",
     alignItems: "center",

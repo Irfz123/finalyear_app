@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import {
   Linking,
   Pressable,
@@ -14,8 +13,6 @@ import {
 } from "react-native";
 
 const CustomModal = ({ modalStatus, modalVisible, title, data }) => {
-  const [isModalVisible, setIsModalVisible] = useState(modalVisible);
-
   return (
     <Modal animationType="slide" transparent={true} visible={modalVisible}>
       <View style={styles.modalContainer}>
